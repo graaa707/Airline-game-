@@ -9,8 +9,8 @@ body {
 }
 
 .box {
-    background-color: lightcyan; /* Changed to light cyan */
-    border: 2px solid #000; /* Changed to dark black (#000) */
+    background-color: lightcyan;
+    border: 2px solid #000;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
@@ -19,6 +19,9 @@ body {
 #play-text {
     font-size: 2em;
     text-align: center;
-    color: #fff; /* Changed to white (#fff) */
+    color: #fff;
     margin: 0;
+    border: 1px solid #000; /* Added a 1px solid black border */
+    padding: 5px; /* Add some padding around the text for better visual */
+    border-radius: 4px; /* Optional: Add a slight border radius to the text */
 }
