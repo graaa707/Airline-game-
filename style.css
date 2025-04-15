@@ -121,3 +121,32 @@ h1 {
 .account-container a:hover {
     text-decoration: underline;
 }
+/* ... your existing CSS ... */
+
+.home-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px; /* Adjust width as needed */
+    margin: 50px auto; /* Center the container on the page */
+}
+
+.home-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    margin-top: 10px;
+    color: #555;
+}
+
+.home-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.home-container a:hover {
+    text-decoration: underline;
+}
