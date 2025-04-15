@@ -5,9 +5,11 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-image: url('641398360.jpeg'); /* Ensure this is the exact filename */
+    background-image: url('641398360.jpeg'); /* Ensure this is your correct filename */
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center;
+    background-color: #f0f0f0; /* Optional: Light gray background for empty areas */
 }
 
 .box {
