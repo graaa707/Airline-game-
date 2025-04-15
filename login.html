@@ -20,11 +20,53 @@
             <input type="password" id="login-password" name="login-password">
         </div>
 
-        <a href="home.html"><button>Login</button></a>
+        <button id="login-button" disabled>Login</button>
+        <p id="login-error" style="color: red; margin-top: 5px; display: none;">Invalid username or password.</p>
 
         <p>Don't have an account? <a href="account.html">Register here</a></p>
 
         <p><a href="index.html">Go back to the main page</a></p>
     </div>
+
+    <script>
+        const loginUsernameInput = document.getElementById('login-username');
+        const loginPasswordInput = document.getElementById('login-password');
+        const loginButton = document.getElementById('login-button');
+        const loginErrorText = document.getElementById('login-error');
+
+        // Simulate registered users (VERY INSECURE for real applications!)
+        const registeredUsers = [
+            { username: 'testuser', password: 'password123' },
+            { username: 'anotheruser', password: 'securepass' }
+            // You can add more simulated users here
+        ];
+
+        function checkLoginCredentials() {
+            const enteredUsername = loginUsernameInput.value;
+            const enteredPassword = loginPasswordInput.value;
+
+            const userFound = registeredUsers.find(user =>
+                user.username === enteredUsername && user.password === enteredPassword
+            );
+
+            if (userFound) {
+                loginButton.disabled = false;
+                loginErrorText.style.display = 'none';
+            } else {
+                loginButton.disabled = true;
+                loginErrorText.style.display = 'block';
+            }
+        }
+
+        function goToHome() {
+            if (!loginButton.disabled) {
+                window.location.href = '/home.html';
+            }
+        }
+
+        loginUsernameInput.addEventListener('keyup', checkLoginCredentials);
+        loginPasswordInput.addEventListener('keyup', checkLoginCredentials);
+        loginButton.addEventListener('click', goToHome);
+    </script>
 </body>
 </html>
