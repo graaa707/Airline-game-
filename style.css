@@ -21,7 +21,9 @@ body {
     text-align: center;
     color: #fff;
     margin: 0;
-    border: 1px solid #000; /* Added a 1px solid black border */
-    padding: 5px; /* Add some padding around the text for better visual */
-    border-radius: 4px; /* Optional: Add a slight border radius to the text */
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
