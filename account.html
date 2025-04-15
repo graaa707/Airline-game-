@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="account-container">
-        <h1>Create Account or Login</h1>
+        <h1>Create Account</h1>
 
         <div class="input-group">
             <label for="username">Username:</label>
@@ -20,11 +20,44 @@
             <input type="password" id="password" name="password">
         </div>
 
-        <button>Register your account</button>
+        <div class="input-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+            <p id="password-match" style="color: red; margin-top: 5px; display: none;">Passwords do not match!</p>
+            <p id="password-ok" style="color: green; margin-top: 5px; display: none;">Passwords match!</p>
+        </div>
+
+        <button id="register-button">Register your account</button>
 
         <p>Already have an account? <a href="login.html">Login</a></p>
 
         <p><a href="index.html">Go back to the main page</a></p>
     </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const passwordMatchText = document.getElementById('password-match');
+        const passwordOkText = document.getElementById('password-ok');
+        const registerButton = document.getElementById('register-button');
+
+        function checkPasswordMatch() {
+            if (passwordInput.value === confirmPasswordInput.value) {
+                passwordMatchText.style.display = 'none';
+                passwordOkText.style.display = 'block';
+                registerButton.disabled = false; // Enable the button
+            } else {
+                passwordMatchText.style.display = 'block';
+                passwordOkText.style.display = 'none';
+                registerButton.disabled = true; // Disable the button
+            }
+        }
+
+        confirmPasswordInput.addEventListener('keyup', checkPasswordMatch);
+        passwordInput.addEventListener('keyup', checkPasswordMatch);
+
+        // Initially disable the register button
+        registerButton.disabled = true;
+    </script>
 </body>
 </html>
