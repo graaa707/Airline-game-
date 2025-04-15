@@ -53,8 +53,17 @@
             }
         }
 
+        function goToHome() {
+            if (!registerButton.disabled) {
+                window.location.href = 'home.html';
+            } else {
+                alert('Please ensure passwords match before registering.');
+            }
+        }
+
         confirmPasswordInput.addEventListener('keyup', checkPasswordMatch);
         passwordInput.addEventListener('keyup', checkPasswordMatch);
+        registerButton.addEventListener('click', goToHome);
 
         // Initially disable the register button
         registerButton.disabled = true;
