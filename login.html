@@ -45,6 +45,7 @@
             const enteredUsername = loginUsernameInput.value;
             const enteredPassword = loginPasswordInput.value;
 
+            const usernameExists = registeredUsers.some(user => user.username === enteredUsername);
             const userFound = registeredUsers.find(user =>
                 user.username === enteredUsername && user.password === enteredPassword
             );
@@ -52,9 +53,19 @@
             if (userFound) {
                 loginButton.disabled = false;
                 loginErrorText.style.display = 'none';
-            } else {
-                loginButton.disabled = true;
+            } else if (enteredUsername && !usernameExists) {
+                loginErrorText.textContent = 'Username not registered. Register this as a new account.';
                 loginErrorText.style.display = 'block';
+                loginButton.disabled = true;
+            } else {
+                loginErrorText.textContent = 'Invalid password for this username.';
+                loginErrorText.style.display = 'block';
+                loginButton.disabled = true;
+            }
+
+            // Clear error if both fields are empty
+            if (!enteredUsername && !enteredPassword) {
+                loginErrorText.style.display = 'none';
             }
         }
 
@@ -67,6 +78,9 @@
         loginUsernameInput.addEventListener('keyup', checkLoginCredentials);
         loginPasswordInput.addEventListener('keyup', checkLoginCredentials);
         loginButton.addEventListener('click', goToHome);
+
+        // Initially disable the login button
+        loginButton.disabled = true;
     </script>
 </body>
 </html>
